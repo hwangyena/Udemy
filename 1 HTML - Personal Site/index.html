@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>yesme's Personal Site</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <table cellspacing="20">
+    <tr>
+      <td><img src="images/circle-cropped.png" alt="yena profile picture" width="200px" height="200px"></td>
+      <td>
+        <h1>Yesmeyes</h1>
+        <p><em><strong>Student</strong> of Ulsan University</em></p>
+        <!--i태그도 동일하지만 그냥 style만 꾸며주는 역할. em태그가 더 좋음-->
+        <!--b태그보다 <strong></strong> 쓸것!-->
+        <p>
+        My name is yena. I'm 24years old, soon I'm goona be gradulating my colleage.
+        I want to be a frontend developer. cause when I study about the HTML, CSS, JAVASCIPT,
+        I got interested in, than when compared to others!
+        so, now I am studying for making my website. 😉😉
+        </p>
+      </td>
+    </tr>
+  </table>
+  <!--해당 서버를 통해 이미지를 받아오므로 서버가 없으면 이미지를 볼 수 없음-->
+
+  <hr>
+  <h3>Likes and Hates</h3>
+  <ul>
+    <li>Love Stickers and other things</li>
+    <ul>
+      <li><a href="https://dinotaeng.com/">DinoTaeng</a></li>
+      <li>My Buddy</li>
+    </ul>
+    <li>Like Programming</li>
+    <li>Hate getting old</li>
+  </ul>
+
+  <hr>
+
+  <h3>Project Experience</h3>
+  <table>
+    <!--thead 없이 th만 써도 가능하지만 쓰는 이유는
+  선택, isolate 하기위해서
+  속성들은 deprecated됨(CSS가 대신함)-->
+    <thead>
+      <tr><!--table row-->
+        <th>Date</th>
+        <th>Project</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2018-2019</td><!--table data-->
+        <td>OpenCV Project - Mouson</td>
+      </tr>
+      <tr>
+        <td>2019</td>
+        <td>App - Listen my Recipe</td>
+      </tr>
+    </tbody>
+    <tfoot>
+
+    </tfoot>
+  </table>
+
+  <hr>
+
+  <!-- table태그 안에 table 태그 넣는것 잘 생각해보기 -->
+  <h3>Skills</h3>
+  <table border="1" cellspacing="10">
+    <tr>
+      <td>
+        <table>
+          <tr>
+            <td>Web Development</td>
+            <td>⭐⭐</td>
+          </tr>
+          <tr>
+            <td>Design Skills</td>
+            <td>⭐⭐⭐</td>
+          </tr>
+        </table>
+      </td>
+      <td>
+        <table>
+          <tr>
+            <td>Java, C Language</td>
+            <td>⭐⭐⭐</td>
+          </tr>
+          <tr>
+            <td>Andriod Development</td>
+            <td>⭐⭐</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <center><a href="hobbies.html">My Hobbies</a>
+  <a href="contact.html">contact me!</a></center>
+</body>
+
+</html>

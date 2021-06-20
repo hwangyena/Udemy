@@ -42,7 +42,9 @@ async function findMultipleListings(client, nameOfListing){
   const results = await cursor.toArray();
   if (results.length > 0) {
         console.log(`Found a listing in the collection with the name '${nameOfListing}':`);
-        
+        results.forEach(result)=>{
+          console.log(result);
+        }
     } else {
         console.log(`No listings found with the name '${nameOfListing}'`);
     }

@@ -1,0 +1,16 @@
+body{
+  background-color: #FDF5E6;
+}
+hr{
+  border-color: white;
+  border-width: 10px;
+  /* css 전 각각의 태그는 default 값이 잇다 */
+  /* border-style: dotted none none; 아래와 동일한 효과*/
+  border-style: none;
+  border-top-style: dotted;
+  width: 8%;
+}
+
+h1, h3{
+  color: #B0C4DE;
+}

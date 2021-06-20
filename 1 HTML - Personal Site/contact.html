@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Contact ME!</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <h1>My Contact Details</h1>
+  <p>email📧 center7332@naver.com</p>
+  <p>git💾 <a href="https://github.com/hwangyena">hwangyena</a></p>
+
+  <form action="mailto:info@londonappbrewery.com" method="post" enctype="text/plain">
+    <label for="">Your Name: </label>
+    <input type="text" name="name">
+    <input type="color"><br>
+
+    <label for="">Do you want to sign up to the email list?</label>
+    <input type="checkbox"><br>
+
+    <label for="">Password: </label>
+    <input name="pwd" type="password"><br>
+
+    <label for="">Yout Email: </label>
+    <input type="email" name="email"><br>
+
+    <label>Your Message:</label><br>
+    <textarea name="msg" rows="10" cols="50"></textarea>
+    <!-- 크기조절 가능 -->
+    <input type="submit" value="submit">
+  </form>
+
+  <form action="http://localhost/color.php">
+      <h4>- 색상</h4>
+      <select name="color" id="">
+          <option value="red">빨간색</option>
+          <option value="green">초록색</option>
+          <option value="blue">파란색</option>
+      </select>
+
+      <h4>- 다중선택</h4>
+      <select name="color2" multiple>
+          <option value="red">빨간색</option>
+          <option value="green">초록색</option>
+          <option value="blue">파란색</option>
+      </select>
+      <input type="submit" value="제출" id="sub">
+  </form>
+</body>
+
+</html>
