@@ -1,0 +1,112 @@
+/*
+#A4A5A6
+#F2EFBD
+#F2D750
+#F2ECCE
+#F2CA52
+*/
+body{
+  background-color: #A4A5A6;
+  text-align: center;
+}
+
+h1{
+  margin-top: 150px;
+  color: #F2D750;
+  font-size: 4rem;
+  font-family: 'Satisfy', cursive;
+  margin-bottom: 100px;
+}
+
+footer{
+  color: #F2EFBD;
+  margin-top: 5%;
+}
+
+/* 배경 꾸미기 */
+.triangle{
+  background-image: linear-gradient(to bottom left, #F2ECCE 50%, #A4A5A6 50%);
+  margin: 0;
+  width: 400px;
+  height: 350px;
+
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+/*리스트 전체 */
+.todoList{
+  margin: 50px auto;
+  max-width: 500px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 3px 3px 10px rgb(89, 89, 89);
+  flex-direction: column;
+}
+
+/* Todo 리스트 각각 */
+.item{
+  padding: 20px 0;
+  text-align: left;
+  display: flex;
+  border-bottom: 1px solid #A4A5A6;
+}
+
+/*checkbox list*/
+input[type="checkbox"]{
+  margin: auto 20px;
+}
+
+/*체크박스 선택한 경우*/
+input:checked + .lineCheck{
+  text-decoration: line-through;
+  text-decoration-color: #F2CA52;
+}
+
+
+/* font */
+.item, input[type="text"], footer{
+    font-size: 1.3rem;
+    font-family: 'Inconsolata', monospace;
+}
+
+/*input Text, button 부분*/
+.inputArea{
+  margin: 5% 0 3%;
+}
+
+input[type="text"]{
+  border: 0;
+  text-align: center;
+  padding: 12px 20px;
+  margin-right: 20px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  background-color: rgb(233, 233, 233);
+}
+
+::placeholder {
+  color: gray;
+  opacity: 0.7;
+}
+
+/* button */
+button{
+  min-height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 0;
+  background-color: #F2D750;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+button:hover{
+  background-color: #F2CA52;
+  color: #fff;
+}

@@ -1,0 +1,36 @@
+body{
+  background-color: lightPink;
+  text-align: center;
+  padding: 10% 20%;
+}
+
+h1, h2, h3, h4{
+  color: #FFF;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+hr{
+  margin-bottom: 30px;
+  border: 2px solid #FFF;
+}
+
+h3{
+  display: inline-block;
+  padding-right: 20px;
+}
+
+.btn{
+  margin-top: 50px;
+  padding: 15px 30px;
+  color: #FFF;
+  border: 2px solid #FFF;
+  background-color: lightPink;
+}
+
+.btn:hover{
+  background-color: #FFF;
+  color: lightPink;
+}

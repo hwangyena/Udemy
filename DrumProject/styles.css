@@ -1,0 +1,101 @@
+/*
+#007580
+#282846
+#D8EBE4
+#FED049
+*/
+
+body{
+  background-color: #282846;
+  padding: 4% 0;
+  text-align: center;
+}
+
+h1{
+  font-family: 'Permanent Marker', cursive;
+  color: #007580;
+  font-size: 5rem;
+  text-shadow: 5px 5px #FED049;
+}
+
+button{
+  z-index: 1;
+  font-family: 'Kalam', cursive;
+  color: #FED049;
+  font-size: 6rem;
+  width: 150px;
+  height: 150px;
+  border: 10px solid #3A3B6B;
+  margin: 5% 2% 0 0;
+}
+
+footer{
+  color: #D8EBE4;
+  padding-top: 200px;
+  font-family: 'Kalam', cursive;
+}
+
+/*hover event*/
+.drum-hover:hover .drum-img{
+  filter: blur(2px);
+}
+
+/*keypress activation*/
+.drum-active > .drum-hover > .drum-img{
+  filter: blur(2px);
+}
+
+.drum-active > .drum-hover > .drum-txt{
+  color: #007580;
+  text-shadow: 2px 2px #FED049;
+}
+
+/* drum background img blur  */
+.drum{
+  padding: 0;
+}
+
+.drum-hover{
+  position: relative;
+}
+
+.drum-img{
+  height: 130px;
+  width: 100%;
+}
+
+.drum-txt{
+  z-index: 1;
+  position: absolute;
+  top: -10px;
+  left: 40px;
+}
+
+/* drum image */
+.w>.drum-hover>.drum-img{
+  background-image: url("images/tom1.png");
+}
+
+.a>.drum-hover>.drum-img{
+  background-image: url("images/tom2.png");
+}
+
+.s>.drum-hover>.drum-img{
+  background-image: url("images/tom3.png");
+}
+
+.d>.drum-hover>.drum-img{
+  background-image: url("images/tom4.png");
+}
+
+.j>.drum-hover>.drum-img{
+  background-image: url("images/snare.png");
+}
+
+.k>.drum-hover>.drum-img{
+  background-image: url("images/crash.png");
+}
+
+.l>.drum-hover>.drum-img{
+  background-image: url("images/kick.png");
+}

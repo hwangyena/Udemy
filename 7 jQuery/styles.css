@@ -1,0 +1,27 @@
+.big-title{
+  font-size: 5rem;
+  color: #ff2545;
+  font-family: cursive;
+}
+
+.m-50{
+  margin: 50px;
+}
+
+img{
+  width: 200px;
+  height: 200px;
+  display: block;
+}
+
+h4{
+  color: gray;
+}
+
+.box{
+  border: 1px solid;
+  display: inline-block;
+  padding: 10px;
+  font-size: 8px;
+
+}
