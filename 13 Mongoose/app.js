@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 mongoose.connect("mongodb://localhost:27017/fruitsDB", {useNewUrlParser: true});
 
+
+//fruitSchema
 const fruitSchema = new mongoose.Schema ({
   name: {
     type: String,
@@ -15,10 +17,18 @@ const fruitSchema = new mongoose.Schema ({
   review: String
 });
 
+//Person Schema
+const personSchema = new mongoose.Schema({
+  name: String,
+  age: Number,
+  favoriteFruit: fruitSchema
+});
+
 //Insert 'Fruit : collection'
 const Fruit = mongoose.model("Fruit", fruitSchema);
+const Person = mongoose.model("Person", personSchema);
 
-const fruit = new Fruit({
+const apple = new Fruit({
   name: "Apple",
   rating: 5,
   review: "soso"
@@ -34,16 +44,15 @@ const banana = new Fruit({
   name: "Banana",
   rating: 10,
   review: "so sweet"
-})
+});
 
-//fruit.save();
 
-Fruit.find(function(err, fruits){
+
+//update john
+Person.updateOne({name:"John"}, {favoriteFruit: banana},  function(err){
   if(err){
     console.log(err);
   }else{
-    fruits.forEach((item)=>console.log(item.name));
-
-    mongoose.connection.close();
+    console.log("Succesfully updated the document!");
   }
-});
+})
