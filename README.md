@@ -5,4 +5,4 @@ https://www.udemy.com/course/the-complete-web-development-bootcamp/
 
 ### 소개
 2021.01.05 ~ 2021.07.31 완강 예정<br>
-Udemy 강의를 듣고 HTML, CSS, JavaScript, BootStrap, Node.js, EJS, Mongoose 등 다양한 웹 개발에 대해 학습중에 있습니다.
+Udemy 강의를 듣고 HTML, CSS, JavaScript, BootStrap, Node.js, EJS, Mongoose 등에 대한 학습 및 개발 기록
