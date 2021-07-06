@@ -1,0 +1,24 @@
+<%# header, footer 파일 포함 %>
+
+<%- include("header") -%>
+  <h1> <%= listTitle %> </h1>
+
+  <!-- .js 파일로부터 item 읽어들임 -->
+    <div class="todoList">
+      <% newListItem.forEach((item) => {%>
+        <div class="item">
+          <input type="checkbox">
+          <div class="lineCheck">
+            <%= item.name %>
+          </div>
+        </div>
+      <%})%>
+
+      <form class="inputArea" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="list" value= <%= listTitle %>>+</button>
+      </form>
+
+    </div>
+
+<%- include("footer") -%>
