@@ -6,17 +6,21 @@
   <!-- .js 파일로부터 item 읽어들임 -->
     <div class="todoList">
       <% newListItem.forEach((item) => {%>
-        <div class="item">
-          <input type="checkbox">
-          <div class="lineCheck">
-            <%= item.name %>
+        <!-- delete 체크 -->
+        <form action="/delete" method="post">
+          <div class="item">
+            <input type="checkbox" name="checkbox" value="<%= item._id %>" onChange="this.form.submit()">
+            <div class="lineCheck">
+              <%= item.name %>
+            </div>
           </div>
-        </div>
+        </form>
       <%})%>
 
+      <!-- item 추가 체크 -->
       <form class="inputArea" action="/" method="post">
         <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
-        <button type="submit" name="list" value= <%= listTitle %>>+</button>
+        <button type="submit" name="list">+</button>
       </form>
 
     </div>

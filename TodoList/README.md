@@ -6,3 +6,5 @@
 ### 💁 학습한 내용
 * mongoDB 활용 방법
 * node.js와 mongodb Rendering 방법 및 EJS 와 연동 방법
+* mongodb - findOne(), findByIdAndRemove()
+* checkbox로의 submit 사용법과 value 활용방법
