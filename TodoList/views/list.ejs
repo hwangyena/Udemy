@@ -9,18 +9,21 @@
         <!-- delete 체크 -->
         <form action="/delete" method="post">
           <div class="item">
+            <!-- checkbox : 어떤 항목이 체크 됐는지 넘겨줌
+            hidden : 어떤 페이지에서 넘어왔는지 알려줌 -->
             <input type="checkbox" name="checkbox" value="<%= item._id %>" onChange="this.form.submit()">
             <div class="lineCheck">
               <%= item.name %>
             </div>
           </div>
+          <input type="hidden" name="listName" value="<%= listTitle %>"></input>
         </form>
       <%})%>
 
       <!-- item 추가 체크 -->
       <form class="inputArea" action="/" method="post">
         <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
-        <button type="submit" name="list">+</button>
+        <button type="submit" name="list"  value="<%= listTitle %>">+</button>
       </form>
 
     </div>

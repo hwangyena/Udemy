@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose"); //mongoose 연동
+const _ = require("lodash");        //lodash 연동
 
 
 const app = express();
@@ -72,35 +73,62 @@ app.get("/", (req, res) => {
 
 app.post("/", (req,res)=>{
   const itemName = req.body.newItem; //+ 버튼 클릭시 넘어오는 text 객체
+  const listName = req.body.list;   //+ 버튼 클릭시 넘어오는 버튼의 value -> listTitle(현재 페이지 명)
 
   //mongoose 객체로 생성
   const newItem = new Item({
     name: itemName
   });
 
-  newItem.save(); //새로운 item DB에 추가
+  //default page
+  if(listName === "Today"){
+    newItem.save(); //새로운 item DB에 추가
+    res.redirect("/"); //redirect 해서 screen에 render
+  }
+  //custom page
+  else{
+    //listName 찾음
+    List.findOne({name: listName}, (err, foundList)=>{
+      if(!err){
+        foundList.items.push(newItem); //foundList의 item에 객체로 생성한 newItem 넣음
+        foundList.save();
+        res.redirect("/"+listName); //custom page로 redirect
+      }
+    })
+  }
 
-  //redirect 해서 screen에 render
-  res.redirect("/");
+
 })
 
 ///////////////////// delete request  ///////////////////////
-/// 추가 기능 -> 휴지통으로 만들어서 삭제 기능을 구현하는거!!!
 app.post("/delete", (req,res)=>{
-  const checkItem = req.body.checkbox;
+  const checkItem = req.body.checkbox; //선택된 checkbox?
+  const listName = req.body.listName; //어떤 페이지에서 넘어왔는지
 
-  //check된 box 삭제
-  Item.findByIdAndRemove(checkItem, (err)=>{
-    if(!err){
-      console.log("Succesfully delete the item");
-      res.redirect("/");
-    }
-  });
+  //default page
+  if(listName === "Today"){
+    //check된 box 삭제
+    Item.findByIdAndRemove(checkItem, (err)=>{
+      if(!err){
+        console.log("Succesfully delete the item");
+        res.redirect("/");
+      }
+    });
+  }
+  //custom page
+  else{
+    List.findOneAndUpdate({name: listName},{$pull: {items: {_id: checkItem}}}, function(err, foundList){
+      if(!err){
+        res.redirect("/" + listName);
+      }
+    });
+  }
+
 });
 
 ///////////////////// customList page ///////////////////////
 app.get("/:customListName", (req, res)=>{
-  const customListName = req.params.customListName;
+  const customListName = _.capitalize(req.params.customListName); //lodash 적용(맨앞만 대문자)
 
   List.findOne({name: customListName}, (err, list)=>{
     if(!err){
