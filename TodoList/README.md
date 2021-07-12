@@ -11,3 +11,4 @@
 * mongodb Operators - $pull
 * checkbox로의 submit 사용법과 value 활용방법
 * Lodash의 capitalize()
+* Heroku와 server 연동 복습 (해당 git에서는 미구현!)
