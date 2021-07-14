@@ -19,49 +19,96 @@ const articleSchema = {
 const Article = mongoose.model("Article", articleSchema);
 
 //////////////////////////////////articles///////////////////////////////////////
-//GET -> fetch all of the article
-app.get("/articles", (req, res)=>{
-  //article db 확인
-  Article.find(function(err, foundArticles){
-    if(!err){
-      console.log(foundArticles);
-      res.send(foundArticles)
-    }else{
-      res.send(err);
-    }
-  });
-});
+app.route("/articles")
+  .get((req, res)=>{
+    //article db 확인
+    Article.find(function(err, foundArticles){
+      if(!err){
+        console.log(foundArticles);
+        res.send(foundArticles)
+      }else{
+        res.send(err);
+      }
+    });
+  })
+  .post((req, res)=>{
+    const newArticle = new Article({
+        title: req.body.title,
+        content: req.body.content
+    });
 
-//POST -> confirm post working & article save to db
-app.post("/articles", (req, res)=>{
-  console.log(req.body.title);
-  console.log(req.body.content);
-
-  const newArticle = new Article({
-      title: req.body.title,
-      content: req.body.content
+    //에러 확인 message send
+    newArticle.save(function(err){
+      if(!err){
+        res.send("Successfully added a new article.");
+      }else{
+        res.send(err);
+      }
+    });
+  })
+  .delete((req, res)=>{
+    Article.deleteMany(function(err){
+      if(!err){
+        res.send("Successfully deleted all articles");
+      }else{
+        res.send(err);
+      }
+    });
   });
 
-  //에러 확인 message send
-  newArticle.save(function(err){
-    if(!err){
-      res.send("Successfully added a new article.");
-    }else{
-      res.send(err);
-    }
+/////////////////////////Specific Article: articles/:name//////////////////////////
+app.route("/articles/:articleTitle")
+  .get(function(req, res){
+    Article.findOne({title: req.params.articleTitle}, function(err, foundArticles){
+      if(foundArticles){
+        res.send(foundArticles);
+      }else{
+        res.send("No articles matching that title was found.");
+      }
+    });
+  })
+  .put(function(req,res){
+    Article.update(
+      {title: req.params.articleTitle}, //contidition, 업데이트 할 항목
+      {title: req.body.title, content: req.body.content},
+      {overwrite: true},
+      function(err){
+        if(!err){
+          res.send("Successfully updated article");
+        }else{
+          res.send(err);
+        }
+      }
+    )
+  })
+  .patch(function(req, res){
+    Article.update(
+      {title: req.params.articleTitle},
+      {$set: req.body},
+      function(err){
+        if(!err){
+          res.send("Successfully updated article");
+        }else{
+          res.send(err);
+        }
+      }
+    )
+  })
+  .delete(function(req, res){
+    Article.deleteOne(
+      {title: req.params.articleTitle},
+      function(err){
+        if(!err){
+          res.send("Successfully deleted article");
+        }else{
+          res.send(err);
+        }
+      })
   });
-});
 
-//DELETE -> delete all data
-app.delete("/articles", (req, res)=>{
-  Article.deleteMany(function(err){
-    if(!err){
-      res.send("Successfully deleted all articles");
-    }else{
-      res.send(err);
-    }
-  });
-});
+
+
+
 
 app.listen(3000, function(){
   console.log("Server started on port 3000");
