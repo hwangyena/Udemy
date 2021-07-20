@@ -35,10 +35,10 @@ app.post("/", (req, res)=>{
   // console.log(data);
 
   let jsonData = JSON.stringify(data); //API에 전달하고자 하는 정보 -> JSON
-  const url = "https://us1.api.mailchimp.com/3.0/lists/2d155d803c";
+  const url = "---url---";
   const options = {
     method: "POST", //http request method
-    auth: "yesme:9ef4336a8ad8ff85221a31a534adc8e2-us1" //인증
+    auth: "---url---" //인증
   }
 
 
