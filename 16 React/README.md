@@ -11,3 +11,6 @@
 > + Babel 설명    
 > + ReactDOM.render     
 > + Styling - Class & Inline    
+
+2. Components    
+> + React structure - 파일 분류하기     
