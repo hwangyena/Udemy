@@ -1,38 +1,26 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDom from "react-dom";
 
-const img = "https://picsum.photos/200";
-const customStyle = {
-  color: "red",
-  fontSize: "20px",
-  border: "1px solid black"
-};
+const date = new Date();
+const hour = date.getHours();
+let greeting;
+let colorHead = { color: "red" };
 
-customStyle.color = "green";
+if (hour >= 0 && hour < 12) {
+  greeting = "Good morning";
+} else if (hour >= 12 && hour < 18) {
+  greeting = "Good Afternoon";
+  colorHead.color = "green";
+} else {
+  greeting = "Good evening";
+  colorHead.color = "blue";
+}
 
-
-ReactDOM.render(
+ReactDom.render(
   <div>
-    <h1 className="heading" contentEditable="true" spellCheck="false">
-      My Favourite Foods
+    <h1 style={colorHead} className="heading">
+      {greeting}
     </h1>
-    <div>
-      <img
-        className="food-img"
-        alt="chicken" src="http://www.bhc.co.kr/upload/bhc/menu/ck20150130_470_v.jpg"
-      />
-      <img
-        className="food-img"
-        alt="tteokboki" src="https://i.pinimg.com/originals/9a/ef/b3/9aefb3f244dbec9e6edeefdf08c39290.jpg"
-      />
-      <img
-        className="food-img"
-        alt="jjimddark" src="https://admin.foodupusa.com/files/stores/stores_1588894035.jpg"
-      />
-    </div>
-    <img alt="" src={img + "?grayscale"} />
-
-    <h1 style={customStyle}>Hello World!</h1>
   </div>,
   document.getElementById("root")
 );
