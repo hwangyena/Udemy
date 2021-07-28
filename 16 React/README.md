@@ -9,4 +9,5 @@
 ### 💁 학습한 내용
 1. JSX
 > + Babel 설명    
-> + ReactDOM.render  
+> + ReactDOM.render     
+> + Styling - Class & Inline    
