@@ -14,3 +14,4 @@
 
 2. Components    
 > + React structure - 파일 분류하기     
+> + import, export    
