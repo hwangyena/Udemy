@@ -1,12 +1,19 @@
 import React from "react";
-import Heading from "./Heading"; //ES6에서 확장자 없이 찾을 수 있음
-import List from "./List";
+import Emoji from "./Emoji";
+import emojipedia from "../emojipedia";
+
+function InsertEmj(emj) {
+  return <Emoji emoji={emj.emoji} name={emj.name} meaning={emj.meaning} />;
+}
 
 function App() {
   return (
     <div>
-      <Heading />
-      <List />
+      <h1>
+        <span>emojipedia</span>
+      </h1>
+
+      <dl className="dictionary">{emojipedia.map(InsertEmj)}</dl>
     </div>
   );
 }

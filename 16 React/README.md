@@ -17,3 +17,4 @@
 > + import, export    
 
 3. Props
+> + Mapping Data - emojipedia 만들어보기   
