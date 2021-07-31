@@ -1,19 +1,12 @@
 import React from "react";
-import Emoji from "./Emoji";
-import emojipedia from "../emojipedia";
+import Form from "./Form";
 
-function InsertEmj(emj) {
-  return <Emoji emoji={emj.emoji} name={emj.name} meaning={emj.meaning} />;
-}
+var userIsRegistered = false;
 
 function App() {
   return (
-    <div>
-      <h1>
-        <span>emojipedia</span>
-      </h1>
-
-      <dl className="dictionary">{emojipedia.map(InsertEmj)}</dl>
+    <div className="container">
+      <Form isRegister={userIsRegistered} />
     </div>
   );
 }

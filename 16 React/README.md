@@ -17,4 +17,9 @@
 > + import, export    
 
 3. Props
-> + Mapping Data - emojipedia 만들어보기   
+> + Mapping Data - emojipedia 만들어보기  
+
+4. JavaScript
+> + expression VS statement    
+> + ES6 JS arrow function, arrays method    
+> + How to use Ternary Operator, AND Operator    
