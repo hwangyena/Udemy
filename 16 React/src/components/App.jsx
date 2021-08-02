@@ -1,21 +1,8 @@
 import React from "react";
+import TimeCheck from "./TimeCheck";
 
 function App() {
-  const [count, updateCount] = React.useState(0);
-
-  function decrease(){
-    updateCount(count-1);
-  }
-  function increase(){
-    updateCount(count+1);
-  }
-  return (
-    <div>
-      <h1>{count}</h1>
-      <button onClick={decrease}>-</button>
-      <button onClick={increase}>+</button>
-    </div>
-  );
+  return <TimeCheck />;
 }
 
 export default App;
