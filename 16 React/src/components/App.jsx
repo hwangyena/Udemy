@@ -1,49 +1,46 @@
 import React, { useState } from "react";
 
 function App() {
-  const [fullName, setFullName] = useState({
-    fName: "",
-    lName: ""
-  });
+  const [inputText, setInputText] = useState("");
+  const [item, setItem] = useState([]);
 
-  function handleChange(event) {
-    const { value, name } = event.target;
+  function handleTodoList(event) {
+    const value = event.target.value;
+    setInputText(value);
+  }
 
-    setFullName((prevValue) => {
-      if (name === "fName") {
-        return {
-          fName: value,
-          lName: prevValue.lName
-        };
-      } else {
-        return {
-          fName: prevValue.fName,
-          lName: value
-        };
-      }
+  function addTodoList() {
+    setItem((prev) => {
+      return [...prev, inputText];
     });
+
+    //item 추가후 text 비우기
+    setInputText("");
   }
 
   return (
     <div className="container">
-      <h1>
-        Hello {fullName.fName} {fullName.lName}
-      </h1>
-      <form>
+      <div className="heading">
+        <h1>To-Do List</h1>
+      </div>
+      <div className="form">
         <input
-          name="fName"
-          placeholder="First Name"
-          onChange={handleChange}
-          value={fullName.fName}
+          type="text"
+          name="inputText"
+          onChange={handleTodoList}
+          value={inputText}
         />
-        <input
-          name="lName"
-          placeholder="Last Name"
-          onChange={handleChange}
-          value={fullName.lName}
-        />
-        <button>Submit</button>
-      </form>
+        <button onClick={addTodoList}>
+          <span>Add</span>
+        </button>
+      </div>
+      <div>
+        <ul>
+          {item.map((i) => (
+            <li>{i}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

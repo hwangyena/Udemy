@@ -21,12 +21,19 @@
 
 4. Hook
 + useState() 학습    
-+ CSS mouse over 예제
-+ class VS function
-+ Synthetic Event
++ CSS mouse over 예제    
++ class VS function    
++ Synthetic Event    
 
 
-+) JavaScript
++) JavaScript ES6
 + expression VS statement    
 + ES6 JS arrow function, arrays method    
 + How to use Ternary Operator, AND Operator    
++ Spread Operator
+
+### 강의 실습
+![todolist](https://user-images.githubusercontent.com/70925962/130977996-07aa3620-0f2d-49f2-9b80-6ab387ce7bd0.gif)   
+**사용 개념**
+> React - Hook   
+> ES6 - map, Spread Operator
