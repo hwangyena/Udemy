@@ -22,7 +22,8 @@
 4. Hook
 + useState() 학습    
 + CSS mouse over 예제
-
++ class VS function
++ Synthetic Event
 
 
 +) JavaScript
