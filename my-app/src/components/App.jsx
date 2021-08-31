@@ -18,9 +18,10 @@ function App(){
     });
   }
 
-  function deleteNote(key){
+  function deleteNote(id){
     setNoteList((prevNote)=>{
-      return prevNote.filter((element, idx)=>{return idx!==key});
+      return prevNote.filter((element, index)=>{
+        return index !== id});
     })
   }
 
@@ -30,7 +31,7 @@ function App(){
           <PlusNote clickEvent={addNote}/>
           {noteList.map((noteList, index)=>
             <Note
-              key={index}
+              key={uuidv4()}
               id={index}
               title={noteList.title}
               content={noteList.content}
