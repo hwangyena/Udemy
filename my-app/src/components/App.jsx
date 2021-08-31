@@ -12,9 +12,9 @@ function App(){
     content: "It is sample contents"
   }]);
 
-  function addNote(inputTitle, inputContent){
+  function addNote(inputNote){
     setNoteList((prevNote)=>{
-      return [...prevNote, {title: inputTitle, content: inputContent}]
+      return [...prevNote, {title: inputNote.title, content: inputNote.content}]
     });
   }
 

@@ -1,38 +1,40 @@
 import React, { useState } from "react";
 
 function PlusNote(props){
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [createNote, setCreateNote] = useState({
+    title: "",
+    content: ""
+  })
 
   function handleClick(event){
     event.preventDefault();
   }
 
-  function handleTitle(event){
-    const titleValue = event.target.value;
-    setTitle(titleValue);
-  }
+  function handleNote(event){
+    const {name, value} = event.target;
 
-  function handleContent(event){
-    const contentValue = event.target.value;
-    setContent(contentValue);
+    setCreateNote(prevNote => {
+      return {
+        ...prevNote,
+        [name]: value
+      }
+    })
   }
 
   return (
     <div>
         <form onSubmit={handleClick}>
-          <input name="title" placeholder="title..." onChange={handleTitle} value={title}/>
+          <input name="title" placeholder="title..." onChange={handleNote} value={createNote.title}/>
           <textarea
             name="content"
             placeholder="Take a note...."
             rows="4"
-            onChange={handleContent}
-            value={content}
+            onChange={handleNote}
+            value={createNote.content}
           />
           <button onClick={()=>{
-            props.clickEvent(title, content);
-            setTitle("");
-            setContent("");
+            props.clickEvent(createNote);
+            setCreateNote({title:"", content:""})
           }}>
           Add
           </button>
