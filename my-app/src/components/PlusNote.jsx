@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import AddIcon from "@material-ui/icons/Add";
+import Fab from "@material-ui/core/Fab";
+import Zoom from "@material-ui/core/Zoom";
+import Collapse from "@material-ui/core/Collapse";
 
 function PlusNote(props){
+  /*Note*/
   const [createNote, setCreateNote] = useState({
     title: "",
     content: ""
@@ -21,23 +26,37 @@ function PlusNote(props){
     })
   }
 
+  /*check*/
+  const [checked, setChecked] = useState(false);
+
+
   return (
     <div>
-        <form onSubmit={handleClick}>
-          <input name="title" placeholder="title..." onChange={handleNote} value={createNote.title}/>
-          <textarea
-            name="content"
-            placeholder="Take a note...."
-            rows="4"
+        <form className="create-note" onSubmit={handleClick} onFocus={()=>{setChecked(true);}} onBlur={()=>{setChecked(false);}}>
+          <input
+            name="title"
+            placeholder="title..."
             onChange={handleNote}
-            value={createNote.content}
+            value={createNote.title}
           />
-          <button onClick={()=>{
-            props.clickEvent(createNote);
-            setCreateNote({title:"", content:""})
-          }}>
-          Add
-          </button>
+          <Collapse in={checked}>
+            <textarea
+              name="content"
+              placeholder="Take a note...."
+              rows="4"
+              onChange={handleNote}
+              value={createNote.content}
+            />
+
+            <Zoom in={checked}>
+              <Fab onClick={()=>{
+                props.clickEvent(createNote);
+                setCreateNote({title:"", content:""})
+              }}>
+                <AddIcon/>
+              </Fab>
+            </Zoom>
+          </Collapse>
         </form>
     </div>
   )

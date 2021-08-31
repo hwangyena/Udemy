@@ -9,6 +9,7 @@ html {
 body {
   background: #eee;
   padding: 0 16px;
+  background-image: url("https://www.transparenttextures.com/patterns/climpek.png");
 }
 
 header {
@@ -35,6 +36,7 @@ footer {
 footer p {
   color: #ccc;
 }
+
 .note {
   background: #fff;
   border-radius: 7px;
@@ -64,10 +66,11 @@ footer p {
   height: 36px;
   cursor: pointer;
   outline: none;
+  background-color: #fff;
 }
 
 
-form {
+form.create-note {
 position: relative;
 width: 480px;
 margin: 30px auto 20px auto;
@@ -77,8 +80,8 @@ border-radius: 7px;
 box-shadow: 0 1px 5px rgb(138, 137, 137);
 }
 
-form input,
-form textarea {
+form.create-note input,
+form.create-note textarea {
   width: 100%;
   border: none;
   padding: 4px;
@@ -87,14 +90,14 @@ form textarea {
   resize: none;
 }
 
-form input{
+form.create-note input{
   font-size: 2rem;
 }
-form textarea{
+form.create-note textarea{
   font-size: 1rem;
 }
 
-form button {
+form.create-note button {
   position: absolute;
   right: 18px;
   bottom: -18px;

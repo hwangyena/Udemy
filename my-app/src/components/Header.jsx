@@ -1,10 +1,10 @@
-//to show the Keeper App name in an <h1>.
 import React from "react"
+import AudiotrackIcon from '@material-ui/icons/Audiotrack';
 
 function Header(){
-    return( 
+    return(
     <header>
-        <h1>Keeper</h1>
+        <h1> <AudiotrackIcon/> Keeper</h1>
     </header>
     );
 }
